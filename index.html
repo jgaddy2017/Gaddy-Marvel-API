@@ -10,12 +10,21 @@
         <link rel="stylesheet" type="text/css" href="./main.css" >
     </head>
     <body>
-        
+        <header>
+            <h1>Marvel API</h1>
+        </header>
+        <form id="js-marvel-form">
+            <input type="text" id="js-input-button" name="input-button" />
+            <button type="submit" id="js-submit-button" name="submit-button">Submit</button>
+        </form>
+        <div id="results">
+
+        </div>
         <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
-        <script type="text/javascript" src="./appStates.js"></script>
+        <script src="./md5.js"></script>
         <script type="text/javascript" src="./index.js"></script>
     </body>
 </html>
