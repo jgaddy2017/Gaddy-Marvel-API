@@ -1,1 +1,85 @@
 
+
+html{
+    background-color: black;
+    color: white; 
+    text-align: center;
+}
+
+
+h1{
+    text-align: center;
+
+}
+
+
+
+fieldset {
+    border: 0;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 3px solid gold;
+}
+button{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 3px solid gold;
+}
+.card{
+    width: 150px;
+    height: 180px;
+    margin: 10px;
+    display: inline-block;
+    border: 3px solid black;
+}
+.icon{
+    border-radius: 5px;
+}
+img{
+    border-radius: 5%;
+    width: 120px;
+    height: 120px;
+    margin: 10px;
+}
+p{
+    margin: 0;
+    text-align: center;
+}
+.card:hover{
+    border-radius: 5px;
+    border: 3px solid white;
+}
+.characterIndexTable{
+    text-align: center;
+    background-color: black;
+}
+
+.characterIndex{
+    display: inline-block;
+    border: 2px solid gold;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    margin: 5px;
+}
+.characterIndex:hover{
+    background-color:gold;
+    color:black;
+}
+.sticky {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+  }
+
