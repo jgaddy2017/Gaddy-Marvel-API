@@ -8,64 +8,43 @@
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Raleway" rel="stylesheet">
         <link rel="stylesheet" href="./float-grid.css" />
         <link rel="stylesheet" type="text/css" href="./main.css" >
+        <link rel="stylesheet" type="text/css" href="./modal.css">
     </head>
     <body>
         <header>
-            <h1>Marvel API</h1>
+            <div class="row">
+                    <div class="col-3">
+                        <button id="myBtn">Characters</button>
+                    </div>
+                    <div class="col-6">
+                        <h1>Marvel API</h1>
+                    </div>
+            </div>
         </header>
 
-        <div class="characterIndexTable">
-            <div class="characterIndex">A</div>
-            <div class="characterIndex">B</div>
-            <div class="characterIndex">C</div>
-            <div class="characterIndex">D</div>
-            <div class="characterIndex">E</div>
-            <div class="characterIndex">F</div>
-            <div class="characterIndex">G</div>
-            <div class="characterIndex">H</div>
-            <div class="characterIndex">I</div>
-            <div class="characterIndex">J</div>
-            <div class="characterIndex">K</div>
-            <div class="characterIndex">L</div>
-            <div class="characterIndex">M</div>
-            <div class="characterIndex">N</div>
-            <div class="characterIndex">O</div>
-            <div class="characterIndex">P</div>
-            <div class="characterIndex">Q</div>
-            <div class="characterIndex">R</div>
-            <div class="characterIndex">S</div>
-            <div class="characterIndex">T</div>
-            <div class="characterIndex">U</div>
-            <div class="characterIndex">V</div>
-            <div class="characterIndex">W</div>
-            <div class="characterIndex">X</div>
-            <div class="characterIndex">Y</div>
-            <div class="characterIndex">Z</div>
+        <div id="characterPage">
+            
         </div>
 
-        <form id="js-marvel-form">
-            <fieldset>
-                <!--<div class="row">
-                    <div class="col-4 inputArea">
-                        <input type="text" id="js-hero" name="inputButton" placeholder="Enter Marvel Hero"/>
-                    </div>
-                    <div class="col-3 submitArea">    
-                        <button type="submit" id="js-submit-button" name="submitButton">Submit</button>
-                    </div>    
-                </div>-->
-
-            </fieldset>
-        </form>
 
 
-        <div id="results">
-
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="results">
+                </div>
+            </div>
         </div>
+
+
         <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
-        <script src="./sticky.js"></script>
+        <!--<script src="./sticky.js"></script>-->
+        <script src="./characterObject.js"></script>
         <script src="./md5.js"></script>
         <script type="text/javascript" src="./index.js"></script>
     </body>
