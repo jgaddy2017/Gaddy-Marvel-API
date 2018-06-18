@@ -37,3 +37,7 @@ Super Hero API
 Heroku (used for the proxy server)
 
 ## Screenshots
+
+<img width="1109" alt="screen shot 2018-06-18 at 2 07 06 am" src="https://user-images.githubusercontent.com/10607107/41522591-aafa4140-72a4-11e8-9c5e-bb3a26cc24fb.png">
+
+<img width="1387" alt="screen shot 2018-06-18 at 2 06 37 am" src="https://user-images.githubusercontent.com/10607107/41522605-b248f37e-72a4-11e8-8cfa-c9539c8ad8bf.png">
