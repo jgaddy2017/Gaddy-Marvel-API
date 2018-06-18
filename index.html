@@ -11,10 +11,10 @@
         <link rel="stylesheet" type="text/css" href="./modal.css">
     </head>
     <body>
-        <header>
+        <header role="banner">
             <div class="row">
                     <div class="col-3">
-                        <button id="myBtn">Characters</button>
+                        <button id="myBtn" disabled>Characters</button>
                     </div>
                     <div class="col-6">
                         <h1>Marvel API</h1>
@@ -22,9 +22,10 @@
             </div>
         </header>
 
-        <div id="characterPage">
-            
-        </div>
+        <!--did not hide this because I am using this at the start of my application-->
+        <main role="main" id="characterPage" aria-live="assertive">
+
+        </main>
 
 
 
@@ -33,7 +34,7 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div id="results">
+                <div id="results" aria-live="assertive">
                 </div>
             </div>
         </div>
@@ -43,8 +44,8 @@
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
-        <!--<script src="./sticky.js"></script>-->
         <script src="./characterObject.js"></script>
+        <!--md5 encryption came from google-->
         <script src="./md5.js"></script>
         <script type="text/javascript" src="./index.js"></script>
     </body>
