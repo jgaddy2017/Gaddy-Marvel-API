@@ -9,9 +9,10 @@ html{
 
 h1{
     text-align: center;
-    font-size: 40px;
+    font-size: 45px;
     border-bottom: solid 5px gold;
     padding-bottom: 15px;
+
 }
 h4{
     font-size: 24px;
@@ -87,6 +88,22 @@ p{
     padding-right:5px;
     padding-left:5px;
 }
+.characterIndexDisabled{
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 5px;
+    vertical-align: middle;
+    margin: 5px;
+    padding-right:5px;
+    padding-left:5px;
+    background-color: red;
+    color: white;
+
+}
+
 .characterIndex:hover{
     background-color:gold;
     color:black;
@@ -165,4 +182,25 @@ p{
 .importantOpeningStatement{
     font-size: 22px;
     color: gold;
+}
+.gifInstruction{
+    width: 70%;
+    height: 500px;
+    border-radius: 5px;
+    border: 5px solid gold;
+    margin-top: 20px;
+}
+.errorMessageSection{
+    width: 80%;
+    margin: auto;
+}
+.indexingInformation{
+    font-size: 18px;
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .moblePhone{
+        visibility: hidden;
+    }
 }

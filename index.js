@@ -10,24 +10,31 @@ function updateLoader(){
     $('#loader').html(buttonActivation);
 }
 
+//updates the characterIndexingList varible located in characterObject.js once information has been recieved and stored
+function editCharacterIndexListing(startLetter){
+    characterIndexingList = characterIndexingList.replace(`characterIndexDisabled" id="${startLetter}" disabled`, `characterIndex" id="${startLetter}"`);
+}
+
 //runs A-Z in the alphbet to retrieve all heros at the start of the application
 function fillCharacterObject(){
 
-    return Object.keys(characterGroupObject).map(function(key){
-
-        return runMarvelApi(key);
-        
+     Object.keys(characterGroupObject).map(function(key){	 
+        runMarvelApi(key);
     });
+
 }
 
 //this activates the character button, once all characters have been loaded into the characterGroupObject
+/*
 function whenFillCharacter(){
     const promises = fillCharacterObject();
     $.when(...promises).done(function(){
         console.log("done");
-        $('#myBtn').prop('disabled', false);
+        console.log(characterIndexingList);
+        //$('#myBtn').prop('disabled', false);
     });
 }
+*/
 
 //creates the page of all hero cards by their first names and stores those pages in the characterGroupObject
 //characterGroupObject is found in characterObject.js
@@ -62,6 +69,9 @@ function runMarvelApi(startLetter){
         */
         buttonActivation++;
         updateLoader();
+        $(`#${startLetter}`).prop('disabled', false);
+        $(`#${startLetter}`).removeClass( "characterIndexDisabled" ).addClass( "characterIndex" );
+        editCharacterIndexListing(startLetter);
         createCharacterObject(data, startLetter);
     }).fail(showErr);
 
@@ -96,8 +106,8 @@ function createCards(character){
 //handles the A-Z index when the user uses their keyboard to select a letter
 function handleKeyDown(){
     $('html').keydown(event => {
+        console.log("keyboard ran");
         let keyboardPressed = event.key;
-        console.log(keyboardPressed.toUpperCase());
         displayResults(keyboardPressed.toUpperCase());
         handleCardClick();
     });
@@ -105,7 +115,7 @@ function handleKeyDown(){
 
 //handles the A-Z index when the user uses the tab or mouse to click on a letter
 function handleCharacterIndex(){
-    $('.characterIndex').click(event => {
+    $("#results").on("click", ".characterIndex", function(event) {
         event.stopPropagation();
         let selectedIndex = event.currentTarget;
         let selectedLetter = $(selectedIndex).text();
@@ -121,10 +131,23 @@ function handleCardClick(){
         let selectedCard = event.currentTarget;
         let cardName = $(selectedCard).text();
         let cardImg = $(selectedCard).find('img').prop('src');
-        //used same convent from the modal guide on W3 schools
+        displayWaitMess(cardName);
+        //used same convention from the modal guide on W3 schools
         document.getElementById('myModal').style.display = "none";
         runSuperHeroApi(cardName, cardImg);
     });
+}
+
+//displays a wait message while the card information in being fetched
+function displayWaitMess(cardName){
+    let waitMes = `<div class="errorMessageSection">
+                    <div class="sorryTitleSection">
+                        <p class="sorryTitle">Patience<p>
+                    </div>
+                    <p class="sorryDescription">Information on <span class="importantOpeningStatement">${cardName}</span> will appear
+                    <span class="importantOpeningStatement">shortly!</span></p>
+                    </div>`;
+    $('#characterPage').html(waitMes);
 }
 
 //runs when a hero is clicked in the modal
@@ -162,14 +185,16 @@ function runSuperHeroApi(cardName, cardImg){
 
 //displays error message if something when wrong when a hero card was clicked
 function displaySuperHeroApiError(cardName, cardImg){
-    let errorMes = `<h3 class="errorName">${cardName}</h3>
+    let errorMes = `<div class="errorMessageSection">
+                    <h3 class="errorName">${cardName}</h3>
                     <img class = "characterThumbnail" src="${cardImg}">
                     <div class="sorryTitleSection">
                         <p class="sorryTitle">Sorry<p>
                     </div>
                     <p class="sorryDescription">There was an <span class="importantOpeningStatement">error</span> retrieving data!</p>
                     <p class="sorryDescription">There is a possibility the Super Hero API does not have information on this hero. Hopefully they will update their API
-                    <span class="importantOpeningStatement"> SOON!!!</span></p>`;
+                    <span class="importantOpeningStatement"> SOON!!!</span></p>
+                    </div>`;
     return errorMes;
 }
 
@@ -209,8 +234,10 @@ function displayCharacterInfo(data, characterName, characterImg){
 //displays the A-Z index in the modal
 //characterIndexingList is found in characterObject.js
 function displayCharacterIndex(){
+    console.log("displayCharacterIndex ran");
     $('#results').html(characterIndexingList);
     handleCharacterIndex();
+
 }
 
 //controls the modal that pops up
@@ -224,8 +251,8 @@ function handleModal(){
     let span = document.getElementsByClassName("close")[0];
     // When the user clicks on the button, open the modal 
     btn.onclick = function() {
-        handleKeyDown();
         displayCharacterIndex();
+        console.log("modal ran");
         modal.style.display = "block";
     }
     // When the user clicks on <span> (x), close the modal
@@ -244,13 +271,15 @@ function handleModal(){
 //openRemarks is a variable that is found in characterObject.js
 function displayOpeningRemarks(){
     $('#characterPage').html(openingRemarks);
+
 }
+
 
 //starts the Application
 function startMarvelApi(){
+    handleKeyDown();
+    fillCharacterObject();
     displayOpeningRemarks();
-    whenFillCharacter();
-    displayCharacterIndex();
     handleCardClick();
     handleModal();
 }
