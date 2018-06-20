@@ -3,12 +3,7 @@
 let PRIVATE_KEY = "6e8c81140cf26bea43c9feeccd70e3d759b6edf7";
 let PUBLIC_KEY = "1fed845063d20c661e374633d49e3bc0";
 
-let buttonActivation = 0;
 
-//displays to the user the update on how long it is taking to gain all character information
-function updateLoader(){
-    $('#loader').html(buttonActivation);
-}
 
 //updates the characterIndexingList varible located in characterObject.js once information has been recieved and stored
 function editCharacterIndexListing(startLetter){
@@ -24,17 +19,6 @@ function fillCharacterObject(){
 
 }
 
-//this activates the character button, once all characters have been loaded into the characterGroupObject
-/*
-function whenFillCharacter(){
-    const promises = fillCharacterObject();
-    $.when(...promises).done(function(){
-        console.log("done");
-        console.log(characterIndexingList);
-        //$('#myBtn').prop('disabled', false);
-    });
-}
-*/
 
 //creates the page of all hero cards by their first names and stores those pages in the characterGroupObject
 //characterGroupObject is found in characterObject.js
@@ -62,13 +46,8 @@ function runMarvelApi(startLetter){
     }
 
     return $.getJSON(url, query, function(data){
-        /*
-        buttonActivation is used for the button timer that 
-        is displayed to let the user know the application is ready.
-        (all heros have been extracted from the api).
-        */
-        buttonActivation++;
-        updateLoader();
+
+        //updates the information in A-Z characterIndex and what is being shown to the user
         $(`#${startLetter}`).prop('disabled', false);
         $(`#${startLetter}`).removeClass( "characterIndexDisabled" ).addClass( "characterIndex" );
         editCharacterIndexListing(startLetter);
