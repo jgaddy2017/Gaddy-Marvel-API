@@ -29,6 +29,35 @@ function createCharacterObject(data, startLetter){
 }
 
 
+
+
+
+function searchMarvelApi(characterName){
+    let ts = new Date().getTime();
+    let hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY).toString();
+
+    var url = 'http://gateway.marvel.com:80/v1/public/characters';
+
+    let query = {
+        ts: ts,
+        apikey: PUBLIC_KEY,
+        hash: hash,
+        nameStartsWith: characterName,
+        limit: 1
+    }
+    $.getJSON(url, query, function(data){
+        let cardName = data.data.results[0].name;
+        let cardUrl = data.data.results[0].thumbnail.path;
+        let cardExt = data.data.results[0].thumbnail.extension;
+        let cardImg = `${cardUrl}.${cardExt}`;
+        console.log(cardName);
+        console.log(cardImg);
+        runSuperHeroApi(cardName, cardImg);
+
+    }).fail(showErr);
+}
+
+
 //runs at the beginning to gain all characters from marvel api
 //loads all characters at once, runs A then B ..... then Z.
 function runMarvelApi(startLetter){
@@ -45,7 +74,7 @@ function runMarvelApi(startLetter){
         limit: 99
     }
 
-    return $.getJSON(url, query, function(data){
+    $.getJSON(url, query, function(data){
 
         //updates the information in A-Z characterIndex and what is being shown to the user
         $(`#${startLetter}`).prop('disabled', false);
@@ -162,6 +191,8 @@ function runSuperHeroApi(cardName, cardImg){
       });
     }
 
+
+
 //displays error message if something when wrong when a hero card was clicked
 function displaySuperHeroApiError(cardName, cardImg){
     let errorMes = `<div class="errorMessageSection">
@@ -253,6 +284,15 @@ function displayOpeningRemarks(){
 
 }
 
+function handleSearchCharacter(){
+    $('#searchButton').on('click', function(event){
+        let characterName = $('#inputCharacter').val();
+        console.log("handleSearchCharacter");
+        console.log(characterName);
+        searchMarvelApi(characterName);
+    });
+}
+
 
 //starts the Application
 function startMarvelApi(){
@@ -261,6 +301,7 @@ function startMarvelApi(){
     displayOpeningRemarks();
     handleCardClick();
     handleModal();
+    handleSearchCharacter();
 }
 
 
