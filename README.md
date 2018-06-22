@@ -12,7 +12,7 @@ Example: If you want information on Captain America, click on the "C" from the i
 
 These characters are being accessed from the Marvel API.
 
-You will notice that the character button is disabled as soon as you get to the site, thereby enabling all characters to load in at one time. This ensures a smoother user experience. Loading Process will be shown.
+You will notice that some of the buttons are red on the A-Z index. This is because they are disabled, due to the fact that information has not yet been recieved for those characters yet. You will know that the information has come back and the button in enabled when the button turns white.
 
 The statistics and background of each character is accessed from the Super Hero API, so not all characters will have information.
 
