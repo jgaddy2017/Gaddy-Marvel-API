@@ -62,7 +62,7 @@ let characterIndexingList = '<h4>A-Z character index based on characters first n
                             </div>';
 
 
-let openingRemarks = `<p class="openingStatements">Thank you from visiting my <span class="importantOpeningStatement">Marvel API Application!</span><p>
+let openingRemarks = `<p class="openingStatements">Thank you for visiting my <span class="importantOpeningStatement">Marvel API Application!</span><p>
                       <p class="openingStatements">An interesting <span class="importantOpeningStatement">list of characters</span> to begin with would include:</p>
                       <p class="importantOpeningStatement">Deadpool</p>
                       <p class="importantOpeningStatement">Thanos</p>

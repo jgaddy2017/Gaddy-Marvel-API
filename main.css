@@ -32,13 +32,16 @@ input[type=text] {
     border-radius: 5px;
     border: 3px solid gold;
 }
-#myBtn{
+.myButtons{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     border-radius: 5px;
     border: 3px solid gold;
     font-size: 22px;
+}
+.buttonDivider{ 
+    border-right: solid 5px gold
 }
 .card{
     background-color:black;
