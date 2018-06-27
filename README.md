@@ -4,17 +4,33 @@
 
 Here is a live link <https://jgaddy2017.github.io/Gaddy-Marvel-Heros/>
 
+## Other versions
+
+### Original Version of the application 
+
+Unlike this version that requires a search input, this uses an A-Z index that loads all characters from the Marvel Universe.
+
+In my opinion this is the best version because it contains all Marvel characters.
+
+The problem with the original version was that it was to slow because it has to load ALL characters from the Marvel Api.
+
+Github: <https://github.com/jgaddy2017/Original-Marvel-Hero-Project>
+
+Live link: <https://jgaddy2017.github.io/Original-Marvel-Hero-Project/>
+
+### Working combination of the application
+
+The combination version is still a work in progress, but it is functional the way it is now.
+
+Working on having the ability to have all of the information from the Marvel Api located in the A-Z index, while at the same time having the search bar.
+
+Github: <https://github.com/jgaddy2017/SearchMarvelStats>
+
+Live link: <https://jgaddy2017.github.io/SearchMarvelStats/>
+
 ## Summary Section
 
-To begin: on the top left you will find a character button. Clicking on this button will give you an A-Z index. Use this index to access a list of Marvel characters. Characters are listed by their first names.
-
-Example: If you want information on Captain America, click on the "C" from the index. For easier accessibily, you can also click the letter on your keyboard.
-
-These characters are being accessed from the Marvel API.
-
-You will notice that some of the buttons are red on the A-Z index. This is because they are disabled, due to the fact that information has not yet been recieved for those characters yet. You will know that the information has come back and the button in enabled when the button turns white.
-
-The statistics and background of each character is accessed from the Super Hero API, so not all characters will have information.
+This application is used to find stats and basic information on your favorite Marvel character. All you have to do is type in a name and hit search. Also, if you do not know who to search for you can hit the random button on the top left to recieve information on a random character.
 
 ## Technology 
 
@@ -38,6 +54,4 @@ Heroku (used for the proxy server)
 
 ## Screenshots
 
-<img width="1109" alt="screen shot 2018-06-18 at 2 07 06 am" src="https://user-images.githubusercontent.com/10607107/41522591-aafa4140-72a4-11e8-9c5e-bb3a26cc24fb.png">
-
-<img width="1387" alt="screen shot 2018-06-18 at 2 06 37 am" src="https://user-images.githubusercontent.com/10607107/41522605-b248f37e-72a4-11e8-8cfa-c9539c8ad8bf.png">
+<img width="941" alt="screen shot 2018-06-26 at 9 48 41 pm" src="https://user-images.githubusercontent.com/10607107/41948444-d62a2064-798a-11e8-8663-0b85d3173c71.png">
